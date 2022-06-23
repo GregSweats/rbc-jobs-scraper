@@ -1,22 +1,27 @@
 // RBC_DETAIL_URL_BASE
 "https://jobs.rbc.com/ca/en/job/" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 
-// jsonResponse
+// SKILLS_API_URL_BASE
+"https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" meta [IsParameterQuery=true, List={"https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=", "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="}, DefaultValue="https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=", Type="Text", IsParameterQueryRequired=true]
+
+// SKILLS_MIN_COUNT_FOR_LOOKUP
+2 meta [IsParameterQuery=true, Type="Number", IsParameterQueryRequired=true]
+
+// JobsExtractorJsonResponse
 let
-    Source = Json.Document(File.Contents("C:\Users\GregStevens\OneDrive - Dalyle\projects\rbc-scrape-power-query-2022-06-15\job-search-results\New_Request-1655486320222.json")),
+    Source = Json.Document(File.Contents("C:\Users\GregStevens\OneDrive - Dalyle\projects\rbc-jobs-scraper\job-search-results\New_Request-1655486320222.json")),
     eagerLoadRefineSearch = Source[eagerLoadRefineSearch],
     data = eagerLoadRefineSearch[data]
 in
     data
 
-// Jobs
+// JobsExtractorJsonResponseExpanded
 /**
- * Jobs
- *
  * @since 2022-06-17
-*/
+ *
+ */
 let
-    Source = jsonResponse,
+    Source = JobsExtractorJsonResponse,
     // referencing base url below so it shows up in the "Applied Steps" navigator. Easier debugging, more chance of glancing at it and seeing a wrong value while developing/using.
     RBC_JOB_URL_BASE = RBC_JOB_URL_BASE,
     jobs = Source[jobs],
@@ -25,9 +30,21 @@ let
     ),
     #"Expanded Column1" = Table.ExpandRecordColumn(
         #"Converted to Table", "Column1", {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}, {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}
-    ),
+    )
+
+in
+    #"Expanded Column1"
+
+// Jobs
+/**
+ * Jobs
+ *
+ * @since 2022-06-17
+*/
+let
+    Source = JobsExtractorJsonResponseExpanded,
     #"Extracted Values" = Table.TransformColumns(
-        #"Expanded Column1", {"ml_skills", each Text.Combine(List.Transform(_, Text.From), ","), type text}
+        Source, {"ml_skills", each Text.Combine(List.Transform(_, Text.From), ","), type text}
     ),
     #"Extracted Values1" = Table.TransformColumns(
         #"Extracted Values", {"multi_location", each Text.Combine(List.Transform(_, Text.From), ";"), type text}
@@ -67,7 +84,7 @@ let
     data = eagerLoadRefineSearch[data],
     */
     // Sorce = Jobs (Firewall Error with Web.Parts)
-    data = jsonResponse,
+    data = JobsExtractorJsonResponse,
     jobs = data[jobs],
     #"Converted to Table" = Table.FromList(jobs, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
     #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}, {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
@@ -151,32 +168,6 @@ let
     #"Reordered Columns1" = Table.ReorderColumns(#"Inserted Parsed JSON1",{"JSON.1", "jobId", "HEAD.Children.Children.Text.2.1", "HEAD.Children.Children.Text.2.2.1", "HEAD.Children.Children.Text.2.2.2.1.1", "HEAD.Children.Children.Text.2.2.2.1.2", "HEAD.Children.Children.Text.2.2.2.2", "JSON"})
 in
     #"Reordered Columns1"
-
-// jobs3
-let
-    Source = jsonResponse,
-    jobs = Source[jobs],
-    #"Converted to Table" = Table.FromList(jobs, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}, {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Removed Other Columns" = Table.SelectColumns(#"Expanded Column1",{"subCategory", "ml_skills", "latitude", "type", "multi_location", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "visibilityType", "siteType", "longitude", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"multi_location", "jobId", "subCategory", "ml_skills", "latitude", "type", "title", "multi_location_array", "jobVisibility", "multi_category_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "visibilityType", "siteType", "longitude", "isMultiCategory", "multi_category", "reqId", "badge", "isMultiLocation", "applyUrl", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Removed Other Columns1" = Table.SelectColumns(#"Reordered Columns",{"jobId", "multi_location"}),
-    #"Expanded multi_location" = Table.ExpandListColumn(#"Removed Other Columns1", "multi_location")
-in
-    #"Expanded multi_location"
-
-// Jobs (2)
-let
-    Source = jsonResponse,
-    jobs = Source[jobs],
-    #"Converted to Table" = Table.FromList(jobs, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-    #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}, {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Removed Other Columns" = Table.SelectColumns(#"Expanded Column1",{"subCategory", "ml_skills", "latitude", "type", "multi_location", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "visibilityType", "siteType", "longitude", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"subCategory", "ml_skills", "latitude", "type", "multi_location", "title", "multi_location_array", "jobVisibility", "multi_category_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "visibilityType", "siteType", "longitude", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "isMultiLocation", "applyUrl", "location", "ml_job_parser", "category", "externalApply"}),
-    #"Extracted Values" = Table.TransformColumns(#"Reordered Columns", {"ml_skills", each Text.Combine(List.Transform(_, Text.From), ","), type text}),
-    #"Extracted Values1" = Table.TransformColumns(#"Extracted Values", {"multi_location", each Text.Combine(List.Transform(_, Text.From), ";"), type text})
-in
-    #"Extracted Values1"
 
 // JobsTablePhDataExpanded
 let
@@ -294,7 +285,7 @@ in
 
 // multi_location_array
 let
-    Source = jsonResponse,
+    Source = JobsExtractorJsonResponse,
     jobs = Source[jobs],
     #"Converted to Table" = Table.FromList(jobs, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
     #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}, {"cityState", "country", "subCategory", "city", "ml_skills", "latitude", "type", "multi_location", "locale", "title", "multi_location_array", "jobSeqNo", "postedDate", "descriptionTeaser", "dateCreated", "state", "cityStateCountry", "visibilityType", "siteType", "longitude", "address", "isMultiCategory", "multi_category", "reqId", "jobId", "badge", "jobVisibility", "isMultiLocation", "applyUrl", "multi_category_array", "location", "ml_job_parser", "category", "externalApply"}),
@@ -317,3 +308,167 @@ let
     #"job description1" = Source{5}[job.description]
 in
     #"job description1"
+
+// Jobs_Skills
+let
+    Source = JobsExtractorJsonResponseExpanded,
+    #"Removed Other Columns" = Table.SelectColumns(Source,{"ml_skills", "title", "jobId"}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Removed Other Columns",{{"title", type text}, {"jobId", type text}}),
+    #"Reordered Columns" = Table.ReorderColumns(#"Changed Type",{"jobId", "title", "ml_skills"}),
+    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"ml_skills", "SkillsList"}}),
+    #"Expanded SkillsList" = Table.ExpandListColumn(#"Renamed Columns", "SkillsList"),
+    #"Changed Type1" = Table.TransformColumnTypes(#"Expanded SkillsList",{{"SkillsList", type text}})
+in
+    #"Changed Type1"
+
+// Skills
+let
+    Source = Jobs_Skills,
+    #"Removed Other Columns1" = Table.SelectColumns(Source,{"SkillsList"}),
+    #"Grouped Rows" = Table.Group(#"Removed Other Columns1", {"SkillsList"}, {{"Count", each Table.RowCount(_), Int64.Type}}),
+    #"Sorted Rows" = Table.Sort(#"Grouped Rows",{{"Count", Order.Descending}}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Sorted Rows",{{"SkillsList", type text}})
+in
+    #"Changed Type"
+
+// SkillsDefinitionFromAPI
+/**
+ * SkillsWikiDefinition
+ *
+ * Find a definition for a [[Skill]] from the Web.
+ * Using Wikipedia but it could be anywhere.
+ * Swap out me for something else in [[Skills]]
+ *
+ * #DevNote RE: Wiki-style Linking
+ * - Example: `...for a [[Skill]] from the Web...`
+ * -  Double square brackets are for Wiki-style linking within the www.Obsidian.md vault.
+ * - All the Queries source code can be **SO EASILY COPIED** by clicking on the very first item at the top of the Queries left-side panel,
+
+ *
+ * @since 2022-06-17
+ */
+let
+    Source = Skills,
+    MAX_ROWS = 0,
+
+    // Set API_URL as a parameter. Can use fr.wikipedia.org or whatever language you like....in theory
+    // Imaine a sales person, or tech, with anote languae, able to mapskill to their native language, then to the foreign languag and map/PowerPivot them together next to each other?!
+    // This may actually do some good.
+    // Also the Executives, the Managers, canquick lookup terms.
+    //API_URL = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles="
+    API_URL = SKILLS_API_URL_BASE,
+    #"Kept First Rows DEBUG" = if MAX_ROWS = 0 then Table.SelectRows(Source, each [Count] > SKILLS_MIN_COUNT_FOR_LOOKUP) else Table.FirstN(Source,5),
+    #"Added API Request URL" = Table.AddColumn(#"Kept First Rows DEBUG", "SummaryAPIURL", each API_URL & [SkillsList]),
+    #"Added APIResponse" = Table.AddColumn(#"Added API Request URL", "ApiResponse", each Web.Contents([SummaryAPIURL])),
+    // #"Filtered Hidden Files1" = Table.SelectRows(#"Added APIResponse", each [Attributes]?[Hidden]? <> true),
+    // insert a length so we know what the largest responses are. Higher chance of a good description.
+    #"Inserted Text Length" = Table.AddColumn(#"Added APIResponse", "ResponseBinaryLength", each Text.Length(Text.From([ApiResponse])), Int64.Type),
+    #"Sorted ResponseBinaryLength Descending" = Table.Sort(#"Inserted Text Length",{{"ResponseBinaryLength", Order.Descending}}),
+
+
+// #todo Is this Transform File function required?
+    // #"Invoke Transform File" = Table.AddColumn(#"Filtered Hidden Files1", "Transform File", each #"Transform File"([SummaryAPIResponse])),
+     #"Parsed JSON" = Table.AddColumn(
+        #"Sorted ResponseBinaryLength Descending",
+        "ParsedJSON",
+        each Json.Document([ApiResponse])[query] ?? null
+        // `..[query] ?? null` (tenary operator) above is for if that field is undefined, errors out, etc
+    ),
+
+    #"Renamed Transform File to Response" = Table.RenameColumns(#"Parsed JSON",{{"ParsedJSON", "Response"}}),
+
+
+
+
+    // #"Removed Columns1" = Table.RemoveColumns(#"Renamed Transform File to Response",{"SummaryAPIResponse"}),
+    #"Expanded Response" = Table.ExpandTableColumn(#"Renamed Transform File to Response", "Response", {"Name", "Value"}, {"Response.Name", "Response.Value"}),
+    #"Filtered Rows" = Table.SelectRows(#"Expanded Response", each ([Response.Name] = "query")),
+    #"Expanded Response.Value" = Table.ExpandRecordColumn(#"Filtered Rows", "Response.Value", {"normalized", "pages"}, {"Response.Value.normalized", "Response.Value.pages"}),
+    #"Removed Columns2" = Table.RemoveColumns(#"Expanded Response.Value",{"Response.Name", "Response.Value.normalized"}),
+
+    #"Expanded ParsedJSON" = Table.ExpandRecordColumn(#"Parsed JSON", "ParsedJSON", {"normalized", "pages"}, {"ParsedJSON.normalized", "ParsedJSON.pages"}),
+    #"Expanded ParsedJSON.normalized" = Table.ExpandListColumn(#"Expanded ParsedJSON", "ParsedJSON.normalized"),
+    #"Renamed Columns1" = Table.RenameColumns(#"Expanded ParsedJSON.normalized",{{"ParsedJSON.normalized", "apiStyledSkillName"}}),
+    #"Grab Corrected Name" = Table.TransformColumns(
+        #"Renamed Columns1",
+        {
+          {
+            "apiStyledSkillName",
+            // Get [apiStyledSkillName][to]
+            each [to]
+          }
+        }
+    ),
+    /*
+    #Tricky #EILI5
+
+    - `ParsedJSON.pages` is a single record.,
+    - Each Record has a single [Field](https://docs.microsoft.com/en-us/powerquery-m/record-functions)
+    - Each Field appears to be a different number.
+    - Likely unique number.
+    - Pretend that number is `1086547` (value for `Test automation` #maybe)
+    - We could then get the value as `[Parsed][1086547]`
+    - We are in `Table.TransformColumn` from above.
+    - Below is the function we want to run on the column specified above this huge comment.
+    - In that function, `_` refers to the Column value.
+    - That value is.... the Record again!
+    - So, we use `Record.FieldNames(_)` to get a List with the FieldName, should just be one.
+    - Then use `List.First({ 1086547 })` to get the FieldName (finally).
+    - Finally, use `_[108654]`, the array reference syntax #NotSureOfWording
+    - That retrieves the next chunk of data we can decode to get the definition.
+    - Phew
+    -
+    */
+    #"Transform Record with Unique Key to Definition" = Table.TransformColumns(
+      #"Grab Corrected Name",
+      {
+        {
+          "ParsedJSON.pages",
+
+          // #debug by just setting this to `_` and seeing what the value is.
+          // each _
+          // each Record.FieldNames(_)
+          each Record.FieldOrDefault(_, List.First(Record.FieldNames(_), null))
+          // FieldValues(_)
+          // List.First(Record.FieldNames(_))]
+
+          /*
+          each
+            _[
+              List.First(
+                Record.FieldNames(_)
+              )
+            ] ?? null
+          */
+          // end of that chunk :)
+          // #tutorial
+        }
+      }
+    ),
+    #"Expanded ParsedJSON.pages" = Table.ExpandRecordColumn(#"Transform Record with Unique Key to Definition", "ParsedJSON.pages", {"title", "extract"}, {"title", "extract"}),
+    #"Renamed Columns" = Table.RenameColumns(#"Expanded ParsedJSON.pages",{{"title", "ResponseTitle"}, {"extract", "ResponseExtract"}}),
+    #"Removed Columns" = Table.RemoveColumns(#"Renamed Columns",{"ApiResponse"})
+in
+    #"Removed Columns"
+
+// Sample File
+let
+    Source = Skills,
+    #"Added Custom" = Table.AddColumn(Source, "SummaryAPIURL", each "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" & [SkillsList]),
+    #"Added Custom1" = Table.AddColumn(#"Added Custom", "SummaryAPIResponse", each Web.Contents([SummaryAPIURL])),
+    Navigation1 = #"Added Custom1"{0}[SummaryAPIResponse]
+in
+    Navigation1
+
+// Parameter1
+#"Sample File" meta [IsParameterQuery=true, BinaryIdentifier=#"Sample File", Type="Binary", IsParameterQueryRequired=true]
+
+// Transform File
+let
+    Source = (Parameter1 as binary) => let
+        Source = Json.Document(Parameter1),
+        #"Converted to Table1" = Record.ToTable(Source)
+    in
+        #"Converted to Table1"
+in
+    Source
