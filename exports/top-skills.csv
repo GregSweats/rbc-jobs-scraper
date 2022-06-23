@@ -1,0 +1,77 @@
+﻿SkillsList,Average of CalcScorePercent,Count of JobTitle
+agile development,120.00,1
+analytical mind,120.00,1
+commitment to quality,120.00,1
+continuous delivery,120.00,1
+continuous learning,120.00,2
+great attention to detail,120.00,1
+helping others,120.00,2
+object-oriented design,120.00,1
+resiliency,120.00,1
+trustworthiness,120.00,1
+agile mindset,100.00,2
+api,100.00,1
+apis,100.00,2
+application frameworks,100.00,2
+applications,100.00,4
+attention to detail,100.00,1
+communication,100.00,4
+continuous integration,100.00,2
+design thinking,100.00,2
+developer,100.00,1
+excellent communication,100.00,1
+flexible,100.00,2
+git,100.00,1
+github,100.00,1
+impact,100.00,3
+machine learning,100.00,1
+mentoring,100.00,1
+mysql,100.00,3
+organizational skills,100.00,1
+ownership,100.00,1
+performance,100.00,2
+private cloud,100.00,2
+programming language,100.00,1
+relational databases,100.00,3
+rest apis,100.00,2
+restful api,100.00,1
+software engineer,100.00,1
+software engineering,100.00,3
+sql,100.00,2
+stakeholders,100.00,2
+strong communication skills,100.00,3
+supportive,100.00,2
+technical design,100.00,1
+computer science,93.00,3
+orchestration,93.00,1
+public cloud,93.00,2
+identity management,87.00,1
+java,87.00,3
+platforms,87.00,1
+redis,87.00,2
+aws,80.00,2
+big data platforms,80.00,1
+leaders,80.00,2
+microsoft azure,80.00,1
+work/life balance,80.00,2
+jenkins,73.00,1
+sql server,73.00,2
+elasticsearch,70.00,2
+angular,67.00,1
+machine learning pipelines,67.00,1
+python programming,67.00,1
+articulate,60.00,3
+docker,60.00,2
+python programming language,60.00,1
+scala programming,60.00,1
+spring boot,60.00,2
+python,53.00,2
+big data technologies,47.00,2
+mongodb,47.00,2
+data products,40.00,2
+kubernetes,40.00,2
+kafka,33.00,3
+scala,20.00,1
+spark,13.00,3
+hadoop,7.00,3
+openshift,0.00,2
