@@ -1,0 +1,39 @@
+﻿SkillsList,CountJobsWithSkill,MyCalculatedSkillScore
+stakeholders,15,400
+platforms,12,433
+spark,12,67
+kafka,10,167
+mongodb,10,233
+rest apis,10,500
+devops,9,500
+jenkins,9,367
+redis,9,433
+relational databases,8,500
+sql server,8,367
+application,7,500
+technical issues,6,500
+git,5,500
+linux,4,600
+cloud foundry,3,133
+cloud platforms,3,500
+database technologies,3,500
+oracle,3,267
+pcf,3,333
+python programming,3,333
+unit testing,3,467
+web services,3,600
+agile methodology,2,
+debugging,2,
+designing and coding,2,500
+django,2,
+implementation,2,500
+non-relational database technologies,2,
+python programming language,2,300
+resiliency,2,
+source code management,2,
+systems development,2,
+apache airflow,1,
+data infrastructure,1,
+data pipelines frameworks,1,
+design teams,1,
+postgresql,1,

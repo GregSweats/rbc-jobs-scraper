@@ -1,0 +1,148 @@
+﻿SkillsList,title,CalculatedScorePercent,Count
+agile development,Senior Full Stack Developer,,2
+angular 7,Senior Full Stack Developer,,1
+big data platforms,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,,1
+caching,Senior Full Stack Developer,,1
+cloud applications,Senior Full Stack Developer,,1
+continuous delivery,Senior Full Stack Developer,,2
+full software development life cycle,Senior Full Stack Developer,,1
+jpa,Senior Full Stack Developer,,1
+junit,Senior Full Stack Developer,,1
+load balancing,Senior Full Stack Developer,,1
+microsoft azure,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,,2
+mockito,Senior Full Stack Developer,,1
+mvc,Senior Full Stack Developer,,1
+object-oriented design,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,,2
+pivotal cloud foundry,Senior Full Stack Developer,,1
+resiliency,Senior Full Stack Developer,,2
+rest api,Senior Full Stack Developer,,1
+scala programming,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,,1
+spring framework,Senior Full Stack Developer,,1
+ssl certificates,Senior Full Stack Developer,,1
+swagger,Senior Full Stack Developer,,1
+openshift,Senior Full Stack Developer,0,8
+openshift,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0,8
+hadoop,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.0555555555555556,8
+hadoop,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.0555555555555556,8
+hadoop,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.0555555555555556,8
+spark,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.111111111111111,12
+spark,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.111111111111111,12
+spark,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.111111111111111,12
+scala,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.166666666666667,4
+kafka,Senior Full Stack Developer,0.277777777777778,10
+kafka,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.277777777777778,10
+kafka,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.277777777777778,10
+data products,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.333333333333333,8
+data products,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.333333333333333,8
+kubernetes,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.333333333333333,13
+kubernetes,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.333333333333333,13
+big data technologies,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.388888888888889,8
+big data technologies,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.388888888888889,8
+mongodb,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.388888888888889,10
+mongodb,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.388888888888889,10
+python,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.444444444444444,12
+python,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.444444444444444,12
+articulate,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.5,11
+articulate,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.5,11
+articulate,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.5,11
+docker,Senior Full Stack Developer,0.5,8
+docker,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.5,8
+python programming language,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.5,2
+spring boot,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.5,6
+spring boot,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.5,6
+angular,Senior Full Stack Developer,0.555555555555556,5
+machine learning pipelines,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.555555555555556,6
+python programming,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.555555555555556,3
+elasticsearch,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.583333333333333,7
+elasticsearch,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.583333333333333,7
+jenkins,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.611111111111111,9
+sql server,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.611111111111111,8
+sql server,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.611111111111111,8
+aws,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,9
+aws,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.666666666666667,9
+communication,Senior Full Stack Developer,0.666666666666667,16
+communication,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.666666666666667,16
+communication,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,16
+communication,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.666666666666667,16
+computer science,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.666666666666667,11
+computer science,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,11
+computer science,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.666666666666667,11
+leaders,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,6
+leaders,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.666666666666667,6
+stakeholders,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.666666666666667,15
+stakeholders,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,15
+work/life balance,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.666666666666667,2
+work/life balance,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.666666666666667,2
+identity management,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.722222222222222,5
+java,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.722222222222222,12
+java,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.722222222222222,12
+java,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.722222222222222,12
+platforms,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.722222222222222,12
+redis,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.722222222222222,9
+redis,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.722222222222222,9
+orchestration,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.777777777777778,4
+public cloud,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.777777777777778,11
+public cloud,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.777777777777778,11
+agile mindset,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,8
+agile mindset,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,8
+api,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,6
+apis,Senior Full Stack Developer,0.833333333333334,11
+apis,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,11
+application frameworks,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,5
+application frameworks,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,5
+applications,Senior Full Stack Developer,0.833333333333334,13
+applications,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,13
+applications,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,13
+applications,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,13
+attention to detail,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,2
+continuous integration,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,7
+continuous integration,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,7
+design thinking,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,8
+design thinking,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,8
+developer,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,7
+excellent communication,Senior Full Stack Developer,0.833333333333334,3
+flexible,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,3
+flexible,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,3
+git,Senior Full Stack Developer,0.833333333333334,5
+github,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,5
+impact,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,20
+impact,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,20
+impact,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,20
+machine learning,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,10
+mentoring,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,2
+mysql,Senior Full Stack Developer,0.833333333333334,6
+mysql,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,6
+mysql,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,6
+organizational skills,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,2
+ownership,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,7
+performance,Senior Full Stack Developer,0.833333333333334,10
+performance,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,10
+private cloud,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,7
+private cloud,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,7
+programming language,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,2
+relational databases,Senior Full Stack Developer,0.833333333333334,8
+relational databases,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,8
+relational databases,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,8
+rest apis,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,10
+rest apis,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,10
+restful api,Senior Full Stack Developer,0.833333333333334,4
+software engineer,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,2
+software engineering,Senior Full Stack Developer,0.833333333333334,9
+software engineering,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,9
+software engineering,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,9
+sql,Senior Full Stack Developer,0.833333333333334,7
+sql,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,7
+strong communication skills,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,9
+strong communication skills,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,9
+strong communication skills,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,0.833333333333334,9
+supportive,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,0.833333333333334,3
+supportive,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,0.833333333333334,3
+technical design,Senior Full Stack Developer,0.833333333333334,3
+analytical mind,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,1,2
+commitment to quality,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,1,4
+continuous learning,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,1,3
+continuous learning,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,1,3
+great attention to detail,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,1,2
+helping others,YYC DataCon - Data Engineer/Senior Data Engineer Hybrid Opportunities,1,2
+helping others,YYC DataCon - Software Engineer/Senior Software Engineer Hybrid Opportunities,1,2
+trustworthiness,YYC DataCon - AI Engineer/Senior AI Engineer Hybrid Opportunities,1,4
